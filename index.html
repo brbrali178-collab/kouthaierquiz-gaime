@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>📈 Trading Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+
+<main class="app">
+
+  <!-- WELCOME -->
+  <section id="welcome" class="screen active card">
+    <div class="ticker">₿ BTC +2.4% 📈 &nbsp; • &nbsp; EUR/USD -0.3% 📉 &nbsp; • &nbsp; ETH +1.8% 📈 &nbsp; • &nbsp; GOLD +0.6% 📈</div>
+    <h1 class="title">📈 TRADING QUIZ</h1>
+    <p class="subtitle">اختبر معلوماتك في عالم التداول! 💰</p>
+
+    <label for="playerName" class="label">👤 شنوّا اسمك؟</label>
+    <input id="playerName" type="text" maxlength="20" placeholder="اكتب اسمك هنا..." autocomplete="off">
+
+    <div class="label">🎯 اختار المستوى متاعك:</div>
+    <div class="levels">
+      <button class="level easy" data-level="easy" data-count="5"><span>🟢</span><b>ساهل</b><small>5 أسئلة</small></button>
+      <button class="level medium" data-level="medium" data-count="10"><span>🟡</span><b>متوسط</b><small>10 أسئلة</small></button>
+      <button class="level hard" data-level="hard" data-count="15"><span>🔴</span><b>صعيب</b><small>15 سؤال</small></button>
+    </div>
+
+    <p id="error" class="error"></p>
+    <button id="startBtn" class="btn primary big">🚀 START</button>
+    <p class="hint">⏳ عندك 10 ثواني لكل سؤال — يعطيك الصحة!</p>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz" class="screen card">
+    <div class="topbar">
+      <div class="chip">👤 <span id="qPlayer"></span></div>
+      <div class="chip">❓ <span id="qNum"></span></div>
+      <div class="chip score">✅ <span id="qScore">0</span></div>
+    </div>
+    <div class="progress"><div id="progressBar"></div></div>
+
+    <div class="timer-wrap">
+      <div id="timer" class="timer"><span>⏳</span> <b id="timeLeft">10</b></div>
+      <div class="time-track"><div id="timeBar"></div></div>
+    </div>
+
+    <h2 id="question" class="question"></h2>
+    <div id="answers" class="answers"></div>
+    <p id="feedback" class="feedback"></p>
+    <button id="nextBtn" class="btn primary" disabled>NEXT QUESTION ⬅️</button>
+  </section>
+
+  <!-- RESULT -->
+  <section id="result" class="screen card center">
+    <div id="resEmoji" class="big-emoji">🏆</div>
+    <h2 id="resMsg" class="res-msg"></h2>
+    <div class="percent" id="resPercent">0%</div>
+    <div class="stats">
+      <div class="stat"><small>👤 اللاعب</small><b id="rName"></b></div>
+      <div class="stat"><small>🎚️ المستوى</small><b id="rLevel"></b></div>
+      <div class="stat"><small>📋 مجموع الأسئلة</small><b id="rTotal"></b></div>
+      <div class="stat good"><small>✅ إجابات صحيحة</small><b id="rCorrect"></b></div>
+      <div class="stat bad"><small>❌ إجابات غالطة</small><b id="rWrong"></b></div>
+      <div class="stat"><small>⏰ بلا إجابة</small><b id="rUnanswered"></b></div>
+      <div class="stat wide"><small>🏅 النتيجة النهائية</small><b id="rScore"></b></div>
+    </div>
+    <div class="btn-row">
+      <button id="reviewBtn" class="btn secondary">🔍 REVIEW ANSWERS</button>
+      <button id="againBtn" class="btn primary">🔄 PLAY AGAIN</button>
+    </div>
+  </section>
+
+  <!-- REVIEW -->
+  <section id="review" class="screen card">
+    <h2 class="title small">🔍 مراجعة الإجابات</h2>
+    <div id="reviewList" class="review-list"></div>
+    <div class="btn-row">
+      <button id="backBtn" class="btn secondary">⬅️ رجوع للنتيجة</button>
+      <button id="againBtn2" class="btn primary">🔄 PLAY AGAIN</button>
+    </div>
+  </section>
+
+</main>
+<script src="script.js"></script>
+</body>
+</html>
